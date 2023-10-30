@@ -33,5 +33,5 @@ def index():
 
 if __name__ == '__main__':
     with app.app_context():
-        db.create_all()
+        db.create_all() #this will execute the creation of the table
         app.run(debug=True,port=5001)
