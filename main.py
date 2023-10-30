@@ -23,11 +23,15 @@ def index():
         first_name = request.form['first_name']
         last_name = request.form['lust_name']
         email = request.form['email']
+        date = request.form['date']
         occupation = request.form['occupation']
         print(first_name)
         print(last_name)
         print(email)
         print(occupation)
+
+        #creating an instance of the class Form
+        form = Form(first_name=first_name, last_name=last_name, email=email, date=date)
 
     return render_template("index.html")
 
