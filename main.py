@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request
+import flask_sqlalchemy
 
 app = Flask(__name__,template_folder='template')
 
