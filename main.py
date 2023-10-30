@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request
 from flask_sqlalchemy import SQLAlchemy
+from datetime import datetime
 
 app = Flask(__name__,template_folder='template')
 
@@ -23,7 +24,8 @@ def index():
         first_name = request.form['first_name']
         last_name = request.form['lust_name']
         email = request.form['email']
-        date = request.form['date']
+        date = request.form['date'] #this will produce a sqlalchemy.exc.StatementError: (builtins.TypeError) SQLite Date type only accepts Python
+        # date objects as input, because of the type of variable should be a date type according to the class Form that we have created
         occupation = request.form['occupation']
         print(first_name)
         print(last_name)
