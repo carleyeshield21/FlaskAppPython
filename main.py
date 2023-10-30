@@ -8,7 +8,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data.db' #specify the paramet
 # a new folder directory instance with a data.db file
 db = SQLAlchemy(app)
 
-class Form(db.Model):
+class Form(db.Model): #this will create a table in which can be viewed in the sqlite app
     id = db.Column(db.Integer, primary_key=True) #as an indentifier of each row of the table
     first_name = db.Column(db.String(80))
     last_name = db.Column(db.String(80))
