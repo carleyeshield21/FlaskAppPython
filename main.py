@@ -25,7 +25,9 @@ def index():
         last_name = request.form['lust_name']
         email = request.form['email']
         date = request.form['date'] #this will produce a sqlalchemy.exc.StatementError: (builtins.TypeError) SQLite Date type only accepts Python
-        # date objects as input, because of the type of variable should be a date type according to the class Form that we have created
+        # date objects as input, because of the type of variable should be a date type according to the class Form that we have created,
+        # we must convert this variable using the datetime class
+        converted_date = datetime.strptime(date, '%Y-%m-%d')
         occupation = request.form['occupation']
         print(first_name)
         print(last_name)
@@ -33,7 +35,7 @@ def index():
         print(occupation)
 
         #creating an instance of the class Form
-        form = Form(firstname=first_name, lastname=last_name, email=email, date=date, occupation=occupation) #arguments should come from the column
+        form = Form(firstname=first_name, lastname=last_name, email=email, date=converted_date, occupation=occupation) #arguments should come from the column
         # names you created in the table from the Form class
         db.session.add(form)
         db.session.commit()
