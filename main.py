@@ -31,7 +31,10 @@ def index():
         print(occupation)
 
         #creating an instance of the class Form
-        form = Form(first_name=first_name, last_name=last_name, email=email, date=date, occupation=occupation)
+        form = Form(firstname=first_name, lastname=last_name, email=email, date=date, occupation=occupation) #arguments should come from the column
+        # names you created in the table from the Form class
+        db.session.add(form)
+        db.session.commit()
 
     return render_template("index.html")
 
