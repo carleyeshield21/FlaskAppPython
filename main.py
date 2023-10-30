@@ -4,8 +4,10 @@ app = Flask(__name__,template_folder='template')
 
 @app.route("/", methods=['GET','POST'])
 def index():
+    print(request.method)
     if request.method == 'POST':
         first_name = request.form['first_name']
+        print(first_name)
 
     return render_template("index.html")
 
