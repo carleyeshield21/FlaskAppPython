@@ -2,8 +2,8 @@ from flask import Flask, render_template, request
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__,template_folder='template')
-app.config['SECRET KEY'] = 'ang_sikreto_ay_mananatiling_lihim'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data.db'
+app.config['SECRET KEY'] = 'ang_sikreto_ay_mananatiling_lihim' #specify the parameters of the database
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data.db' #specify the parameters of the database
 db = SQLAlchemy(app)
 
 @app.route("/", methods=['GET','POST'])
