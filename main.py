@@ -10,11 +10,11 @@ db = SQLAlchemy(app)
 
 class Form(db.Model): #this will create a table in which can be viewed in the sqlite app
     id = db.Column(db.Integer, primary_key=True) #as an indentifier of each row of the table
-    first_name = db.Column(db.String(80))
-    last_name = db.Column(db.String(80))
-    email = db.Column(db.String(80))
-    date = db.Column(db.Date)
-    occupation = db.Column(db.String(80))
+    firstname = db.Column(db.String(80)) #column name of the table in the database
+    lastname = db.Column(db.String(80)) #column name of the table in the database
+    email = db.Column(db.String(80)) #column name of the table in the database
+    date = db.Column(db.Date) #column name of the table in the database
+    occupation = db.Column(db.String(80)) #column name of the table in the database
 
 @app.route("/", methods=['GET','POST'])
 def index():
