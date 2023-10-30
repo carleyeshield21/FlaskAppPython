@@ -31,7 +31,7 @@ def index():
         print(occupation)
 
         #creating an instance of the class Form
-        form = Form(first_name=first_name, last_name=last_name, email=email, date=date)
+        form = Form(first_name=first_name, last_name=last_name, email=email, date=date, occupation=occupation)
 
     return render_template("index.html")
 
