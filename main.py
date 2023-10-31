@@ -1,7 +1,8 @@
 from flask import Flask, render_template, request, flash
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
-# ejqk wgqs byle wfub
+from flask_mail import Mail, Message
+
 app = Flask(__name__,template_folder='template')
 
 app.config['SECRET_KEY'] = 'ang_sikreto_ay_mananatiling_lihim' #specify the parameters of the database
