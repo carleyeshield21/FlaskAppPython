@@ -12,9 +12,11 @@ app.config['MAIL_SERVER'] = 'smtp.gmail.com'
 app.config['MAIL_PORT'] = 465
 app.config['MAIL_USE_SSL'] = True
 app.config['MAIL_USERNAME'] = 'carleyeshield21@gmail.com'
-app.config['MAIL_PASSWORD'] ='ejqkwgqsbylewfub
-'
+app.config['MAIL_PASSWORD'] ='ejqkwgqsbylewfub'
 db = SQLAlchemy(app)
+
+#create a Mail instance from the imported class
+mail = Mail(app)
 
 class Form(db.Model): #this will create a table in which can be viewed in the sqlite app
     id = db.Column(db.Integer, primary_key=True) #as an indentifier of each row of the table
@@ -46,6 +48,10 @@ def index():
         # names you created in the table from the Form class
         db.session.add(form)
         db.session.commit()
+
+        #sending the email before flashing the success message, create a Message instance from the imported class
+        message_body = f'Salamat sayo kaibigan kong {first_name}'
+        message = Message(subject='Form Submit', sender=app.config['MAIL_USERNAME'], recipients=[email], body=message_body)
 
         flash('Your form was submitted', 'warning')
 
