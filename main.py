@@ -1,10 +1,10 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, flash
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 
 app = Flask(__name__,template_folder='template')
 
-app.config['SECRET KEY'] = 'ang_sikreto_ay_mananatiling_lihim' #specify the parameters of the database
+app.config['SECRET_KEY'] = 'ang_sikreto_ay_mananatiling_lihim' #specify the parameters of the database
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data.db' #specify the parameters of the database, running the program will automatically create
 # a new folder directory instance with a data.db file
 db = SQLAlchemy(app)
@@ -39,6 +39,8 @@ def index():
         # names you created in the table from the Form class
         db.session.add(form)
         db.session.commit()
+
+        flash('Your form was submitted', 'success')
 
     return render_template("index.html")
 
