@@ -50,8 +50,10 @@ def index():
         db.session.commit()
 
         #sending the email before flashing the success message, create a Message instance from the imported class
-        message_body = f'Salamat sayo kaibigan kong {first_name}'
+        message_body = f'Salamat sayo kaibigan kong {first_name}'\
+                                      f'King inamo ka {date}'
         message = Message(subject='Form Submit', sender=app.config['MAIL_USERNAME'], recipients=[email], body=message_body)
+        mail.send(message)
 
         flash('Your form was submitted', 'warning')
 
