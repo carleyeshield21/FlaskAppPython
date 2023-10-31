@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, flash
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
-
+# ejqk wgqs byle wfub
 app = Flask(__name__,template_folder='template')
 
 app.config['SECRET_KEY'] = 'ang_sikreto_ay_mananatiling_lihim' #specify the parameters of the database
@@ -40,7 +40,7 @@ def index():
         db.session.add(form)
         db.session.commit()
 
-        flash('Your form was submitted', 'success')
+        flash('Your form was submitted', 'warning')
 
     return render_template("index.html")
 
